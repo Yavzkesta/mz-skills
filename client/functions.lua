@@ -22,39 +22,37 @@ end
 --exports('GetCurrentSkill')
 
 UpdateSkill = function(skill, amount)
-
     if not Config.Skills[skill] then
-        print("Skill " .. skill .. " doesn't exist")
+        print("Skill " .. skill .. " does not exist")
         return
     end
-
     local SkillAmount = Config.Skills[skill]["Current"]
-    
     if SkillAmount + tonumber(amount) < 0 then
         Config.Skills[skill]["Current"] = 0
-    elseif SkillAmount + tonumber(amount) > 100 then
+    elseif SkillAmount + tonumber(amount) > 250000 then
         Config.Skills[skill]["Current"] = 100
     else
         Config.Skills[skill]["Current"] = SkillAmount + tonumber(amount)
     end
-    
     RefreshSkills()
-
     if Config.Notifications and  tonumber(amount) > 0 then
         if Config.NotifyType == "3d" then
-            Notification("~g~+" .. amount .. "% ~s~" .. skill)
-    elseif Config.NotifyType == 'qb' then
-        QBCore.Functions.Notify("+" .. amount .. "% " .. skill)
-    elseif Config.NotifyType == "tnj" then
-        exports['tnj-notify']:Notify("+" .. amount .. "% " .. skill, "primary", 1500)
-    end
+            Notification("~g~+" .. amount .. " SHITTY NOTI SYSTEM ~s~" .. skill)
+        elseif Config.NotifyType == 'qb' then
+            QBCore.Functions.Notify("+" .. amount .. " XP to " .. skill, "success", 3500)
+        elseif Config.NotifyType == "okok" then
+            exports['okokNotify']:Alert("SKILL GAINED", "+" .. amount .. " XP to " .. skill, 3500, 'info')
+        end
     end
 	TriggerServerEvent("skillsystem:update", json.encode(Config.Skills))
 end
 
-
 function round(num) 
     return math.floor(num+.5) 
+end
+
+function round1(num) 
+    return math.floor(num+1) 
 end
 
 RefreshSkills = function()
