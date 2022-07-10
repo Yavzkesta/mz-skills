@@ -34,4 +34,10 @@ Config.Skills = {
         ["Stat"] = "DRUGREP_ABILITY",
         ['icon'] = 'fas fa-cannabis',
     }, 
+    ["Drug Manufacture"] = {
+        ["Current"] = 0,
+        ["RemoveAmount"] = 0,
+        ["Stat"] = "DRUGREP_ABILITY",
+        ['icon'] = 'fas fa-pills',
+    }, 
 }
