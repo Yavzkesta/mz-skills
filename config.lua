@@ -41,6 +41,12 @@ Config.Skills = {
         ["Stat"] = "DRUGMAKE_ABILITY",
         ['icon'] = 'fas fa-pills',
     }, 
+    ["Delivery Runner"] = {
+        ["Current"] = 0,
+        ["RemoveAmount"] = 0,
+        ["Stat"] = "RUNNER_ABILITY",
+        ['icon'] = 'fas fa-car',
+    }, 
 }
 
 ----------------------------------------------------------------------
