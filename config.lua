@@ -47,6 +47,12 @@ Config.Skills = {
         ["Stat"] = "RUNNER_ABILITY",
         ['icon'] = 'fas fa-car',
     }, 
+    ["Hitman"] = {
+        ["Current"] = 0,
+        ["RemoveAmount"] = 0,
+        ["Stat"] = "HITMAN_ABILITY",
+        ['icon'] = 'fas fa-skull',
+    }, 
 }
 
 ----------------------------------------------------------------------
@@ -76,8 +82,8 @@ Config.Shooters = {
             }, 
             [4] = { -- Jail cafe
             peds = {vector3(1790.94, 2557.21, 45.62),
-            vector3(1789.1, 2560.44, 45.62)}
-        }, 
+                vector3(1789.1, 2560.44, 45.62)}
+            }, 
         },
     }
 }
