@@ -47,6 +47,20 @@ end)
 ```lua
     exports["qb-skillz"]:GetCurrentSkill(skill)
 ```
+
+- For radial menu access to "skills" command add this to qb-radialmenu/config.lua - line 296 and following:
+```lua
+    [3] = {
+        id = 'skills',
+        title = 'Check Skills',
+        icon = 'triangle-exclamation',
+        type = 'client',
+        event = 'mz-skills:client:CheckSkills',
+        shouldClose = true,
+    },
+```
+
+
 ### [ Previews ]
 
 <h3 align='center'>Preview of the main qb-skillz branch</h3>
