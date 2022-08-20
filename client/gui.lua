@@ -48,3 +48,8 @@ end
 RegisterCommand(Config.Skillmenu, function()
     createSkillMenu()
 end)
+
+RegisterNetEvent("mz-skills:client:CheckSkills")
+AddEventHandler("mz-skills:client:CheckSkills", function()
+    createSkillMenu()
+end)
