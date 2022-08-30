@@ -53,6 +53,12 @@ Config.Skills = {
         ["Stat"] = "HITMAN_ABILITY",
         ['icon'] = 'fas fa-skull',
     }, 
+    ["Driving"] = {
+        ["Current"] = 0,
+        ["RemoveAmount"] = 0,
+        ["Stat"] = "DRIVER_ABILITY",
+        ['icon'] = 'fas fa-car-alt',
+    }, 
 }
 
 ----------------------------------------------------------------------
