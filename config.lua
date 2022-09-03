@@ -59,6 +59,12 @@ Config.Skills = {
         ["Stat"] = "DRIVER_ABILITY",
         ['icon'] = 'fas fa-car-alt',
     }, 
+    ["Lumberjack"] = {
+        ["Current"] = 0,
+        ["RemoveAmount"] = 0,
+        ["Stat"] = "TREE_ABILITY",
+        ['icon'] = 'fas fa-tree',
+    }, 
 }
 
 ----------------------------------------------------------------------
