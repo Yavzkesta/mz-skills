@@ -1,49 +1,43 @@
-## <h3 align='center'> Moved to a new repo so issues can be opened old version can be found  <a href='https://github.com/Kingsage311/qb-skillz-old'>here</a></h3>
-## <h3 align='center'>For more support or to see more of my resources you can join my <a href='https://discord.gg/aCFPpcKEGk'>discord</a></h3>
-
-### [ What is this? ]
-- A skillsystem based on GTA's existing skills.
-- Very easy to configure, just check the config.
-- You can for example add this to your gym script to get stronger.
-
-### [ Functions ]
-- Skills displays in ESC -> Stats -> Skills
-- All the skills that is added by default have a unique "function", for example if you run your stamina will increase by the time.
-- Depending on the skill level your character will perform the skill better, for example if your stamina is high you can run longer without getting exhausted.
-- Every ``Config.UpdateFrequency`` (seconds) it will remove the current ``RemoveAmount`` for that skill.
+## mz-skills
+- A database held skill/XP system for qb-core (and use with other mz-resources). 
+- All credit to Kings#4220. This resource is based on the custom line branch of "B1-skillz" - for the original resource (with GTA V inherent modifications) please see: https://github.com/Burn-One-Studios/B1-skillz
 
 ### [ Installation ]
 - Download the resource and drop it to your resource folder.
-- Import the SQL file to your servers DB
-- Add ``start qb-skillz`` to your server.cfg
+- Import the SQL file to your server's database (i.e. run the sql file and make sure the database runs)
+- Add ``start mz-skills`` to your server.cfg (or simply make sure mz-skills is in your [qb] folder)
 
-### [ How do I use it? ]
-- To Update a skill you do following:
+### [ Using mz-skills ]
+!. To Update a skill please use the following export:
 ```lua
-    exports["qb-skillz"]:UpdateSkill(skill, amount)
+    exports["mz-skills"]:UpdateSkill(skill, amount)
 ```
-  so if you were to add 2% to Stamina you do
+ For example, to update "Searching" from bin-diving (as used with mz-bins)
 ```lua
-    exports["qb-skillz"]:UpdateSkill("Stamina", 2)
+    exports["mz-skills"]:UpdateSkill("Searching", 1)
+```
+ You can randomise the amount of skill gained, for example: 
+ ```lua
+    local searchgain = math.random(1, 3)
+    exports["mz-skills"]:UpdateSkill("Searching", searchgain)
+```
+B. The export to check to see if a skill is equal or greater than a particular value is as follows:
+```lua
+    exports["mz-skills"]:CheckSkill(skill, val)
 ```
 
-- An export to check to see if a skill is equal or greater than a value
+You can use this to lock content behind a particular level, for example:
 ```lua
-    exports["qb-skillz"]:CheckSkill(skill, val)
-```
-
-so if you want to check if your lung capacity is 50 or over you would do
-```lua
-exports["qb-skillz"]:CheckSkill("Lung Capacity", 50, function(hasskill)
+exports["mz-skills"]:CheckSkill("Searching", 100, function(hasskill)
     if hasskill then
-        print("Lung Capacity 50 or over")
+        TriggerEvent('mz-bins:client:Reward')
     else
-        print("Lung Capacity lover than 50")
+        QBCore.Functions.Notify('You need at least 100XP in Searching to do this.', "error", 3500)
     end
 end)
 ```
 
-- There is also an export to get the current skill if you were to do something from another script
+- The export to obtain a player's current skill to interact with other scripts is as follows:
 ```lua
     exports["qb-skillz"]:GetCurrentSkill(skill)
 ```
@@ -60,16 +54,8 @@ end)
     },
 ```
 
-
 ### [ Previews ]
 
-<h3 align='center'>Preview of the main qb-skillz branch</h3>
-<p align="center">
-    <img src="https://raw.githubusercontent.com/Kingsage311/Kingsage311/main/assets/skillzmain.png"/>
-</p>
-
-
-<h3 align='center'>Preview of the "custom" qb-skillz branch THIS IS NOT OFFICALLY SUPPORTED</h3>
 <p align="center">
     <img src="https://raw.githubusercontent.com/Kingsage311/Kingsage311/main/assets/skillzcustom.png"/>
 </p>
