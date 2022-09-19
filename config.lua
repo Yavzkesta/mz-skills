@@ -1,14 +1,14 @@
 Config = {}
 
-Config.UpdateFrequency = 300 -- seconds interval between removing values
+Config.UpdateFrequency = 300                -- Seconds interval between removing values (no need to touch this)
 
-Config.Notifications = true -- notification when skill is added
+Config.Notifications = true                 -- Notification played when skill is added (set to "false" to disable)
 
-Config.NotifyType = 'okok' -- notification type: '3d' for 3d Messagebox, 'qb' for QBCore notification, 'tnj' for tnj notification
+Config.NotifyType = 'qb'                    -- Notification type: 'qb' for QBCore notification, 'okok' for okokNotify
 
-Config.Debug = false -- debug print
+Config.Debug = false                        -- Set to "true" to print debugging messages
 
-Config.Skillmenu = "skills" -- skillmenu command
+Config.Skillmenu = "skills"                 -- phrase typed to display skills menu (check readme.md to set to commit to radial menu)
 
 Config.Skills = {
     ["Searching"] = {
@@ -64,6 +64,18 @@ Config.Skills = {
         ["RemoveAmount"] = 0,
         ["Stat"] = "TREE_ABILITY",
         ['icon'] = 'fas fa-tree',
+    }, 
+    ["Heist Reputation"] = {
+        ["Current"] = 0,
+        ["RemoveAmount"] = 0,
+        ["Stat"] = "HEIST_ABILITY",
+        ['icon'] = 'fa-solid fa-user-secret',
+    }, 
+    ["Diving"] = {
+        ["Current"] = 0,
+        ["RemoveAmount"] = 0,
+        ["Stat"] = "DIVING_ABILITY",
+        ['icon'] = 'fas fa-water',
     }, 
 }
 
