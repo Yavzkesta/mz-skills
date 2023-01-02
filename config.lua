@@ -17,7 +17,7 @@ Config.Skills = {
         ["Stat"] = "BINDIVE_ABILITY",
         ['icon'] = 'fas fa-trash', 
     }, 
-    ["Scrapping"] = {
+    ["Scraping"] = {
         ["Current"] = 0,
         ["RemoveAmount"] = 0,
         ["Stat"] = "SCRAP_ABILITY",
