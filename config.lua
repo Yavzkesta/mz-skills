@@ -77,6 +77,12 @@ Config.Skills = {
         ["Stat"] = "DIVING_ABILITY",
         ['icon'] = 'fas fa-water',
     }, 
+    ["Electrical"] = {
+        ["Current"] = 0,
+        ["RemoveAmount"] = 0,
+        ["Stat"] = "ELECTRICAL_ABILITY",
+        ['icon'] = 'fas fa-bolt',
+    }, 
 }
 
 ----------------------------------------------------------------------
