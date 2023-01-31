@@ -46,7 +46,11 @@ local function createSkillMenu()
 end
     
 RegisterCommand(Config.Skillmenu, function()
-    createSkillMenu()
+    if Config.TypeCommand then
+        createSkillMenu()
+    else 
+        Wait(10)
+    end 
 end)
 
 RegisterNetEvent("mz-skills:client:CheckSkills")

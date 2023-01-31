@@ -1,14 +1,28 @@
 Config = {}
 
+-------------
+--MZ-SKILLS--
+-------------
+
 Config.UpdateFrequency = 300                -- Seconds interval between removing values (no need to touch this)
 
 Config.Notifications = true                 -- Notification played when skill is added (set to "false" to disable)
 
-Config.NotifyType = 'qb'                    -- Notification type: 'qb' for QBCore notification, 'okok' for okokNotify
+Config.NotifyType = 'okok'                  -- Notification type: 'qb' for QBCore notification, 'okok' for okokNotify
 
 Config.Debug = false                        -- Set to "true" to print debugging messages
 
+Config.TypeCommand = true                   -- Set to "false" to disable the "/skills" command (or whatever word you set in the next function)
+
 Config.Skillmenu = "skills"                 -- phrase typed to display skills menu (check readme.md to set to commit to radial menu)
+
+-------------
+--RP SKILLS--
+-------------
+
+-- Please feel free to add/subtract the skills you are using in your city as you see fit. 
+-- Please avoid taking skills away after players have already started accumulating XP. 
+-- The following skills which appear in this default list are used by one or more mz- resources. 
 
 Config.Skills = {
     ["Searching"] = {
@@ -83,37 +97,4 @@ Config.Skills = {
         ["Stat"] = "ELECTRICAL_ABILITY",
         ['icon'] = 'fas fa-bolt',
     }, 
-}
-
-----------------------------------------------------------------------
---HOSTILES (to be used with mz-prison, otherwise ignore this section--
-----------------------------------------------------------------------
-
-Config.PedGun2 = 'weapon_unarmed'  -- Defence weapon used by hostiles spawn.
-
-Config.Shooters = {
-    ['soldiers'] = {
-        locations = {
-            [1] = { -- Jail crate defence
-                peds = {vector3(1695.2, 2532.8, 45.56), 
-                vector3(1689.02, 2528.2, 45.56),
-                vector3(1694.19, 2527.68, 45.56),
-                vector3(1715.73, 2567.64, 45.56)}
-            }, 
-            [2] = { -- Jail lab defence
-                peds = {vector3(1690.37, 2658.5, 54.88),
-                vector3(1696.98, 2623.62, 51.92),
-                vector3(1669.75, 2623.69, 51.92),
-                vector3(1665.72, 2619.59, 55.44)}
-            }, 
-            [3] = { -- Jail cells defence
-                peds = {vector3(1755.61, 2484.8, 49.24),
-                vector3(1767.25, 2492.43, 49.24)}
-            }, 
-            [4] = { -- Jail cafe
-            peds = {vector3(1790.94, 2557.21, 45.62),
-                vector3(1789.1, 2560.44, 45.62)}
-            }, 
-        },
-    }
 }
