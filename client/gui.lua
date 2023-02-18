@@ -1,56 +1,55 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+local oxmenu = exports.ox_menu
 
 local function createSkillMenu()
-    skillMenu = {}
-    skillMenu[#skillMenu + 1] = {
-        isHeader = true,
-        header = 'Skills',
-        isMenuHeader = true,
-        icon = 'fas fa-chart-simple'
-    }
+    local menu = oxmenu.CreateMenu('skills', 'Skills')
+    menu.setSubtitle('Select a skill to view its level and XP.')
 
-    for k,v in pairs(Config.Skills) do
-        if v['Current'] <= 100 then
-            SkillLevel = 'Level 0 (Unskilled)'
-        elseif v['Current'] > 100 and v['Current'] <= 200 then
-            SkillLevel = 'Level 1 (Beginner)'
-        elseif v['Current'] > 200 and v['Current'] <= 400 then
-            SkillLevel = 'Level 2 (Amateur)'
-        elseif v['Current'] > 400 and v['Current'] <= 800 then
-            SkillLevel = 'Level 3 (Intermediate)'
-        elseif v['Current'] > 800 and v['Current'] <= 1600 then
-            SkillLevel = 'Level 4 (Competent)'
-        elseif v['Current'] > 1600 and v['Current'] <= 3200 then
-            SkillLevel = 'Level 5 (Skilled)'
-        elseif v['Current'] > 3200 and v['Current'] <= 6400 then
-            SkillLevel = 'Level 6 (Adept)'
-        elseif v['Current'] > 6400 and v['Current'] <= 12800 then
-            SkillLevel = 'Level 7 (Master)'
-        elseif v['Current'] > 12800 then
-            SkillLevel = 'Level 8 (Proficient)'
-        else 
-            SkillLevel = 'Unknown'
+    for k, v in pairs(Config.Skills) do
+        local xp = v['Current']
+        local level
+        if xp <= 100 then
+            level = 'Level 0 (Unskilled)'
+        elseif xp <= 200 then
+            level = 'Level 1 (Beginner)'
+        elseif xp <= 400 then
+            level = 'Level 2 (Amateur)'
+        elseif xp <= 800 then
+            level = 'Level 3 (Intermediate)'
+        elseif xp <= 1600 then
+            level = 'Level 4 (Competent)'
+        elseif xp <= 3200 then
+            level = 'Level 5 (Skilled)'
+        elseif xp <= 6400 then
+            level = 'Level 6 (Adept)'
+        elseif xp <= 12800 then
+            level = 'Level 7 (Master)'
+        else
+            level = 'Level 8 (Proficient)'
         end
-        skillMenu[#skillMenu + 1] = {
-            header = ''.. k .. '',
-            txt = '( '..SkillLevel..' ) Total XP ( '..round1(v['Current'])..' )',
-            icon = ''..v['icon']..'',
-            params = {
-                args = {
-                    v
-                }
-            }
-        }
+
+        local item = oxmenu.CreateItem(k, level .. '\nTotal XP: ' .. xp)
+        item:setRightBadge(v.icon)
+        item:setData('skill', v)
+        item:setCallback(function(menu, item)
+            local skill = item:getData('skill')
+            -- Do something with the selected skill
+            -- For example: Trigger an event to open a more detailed menu for that skill
+            TriggerEvent('mz-skills:client:SkillSelected', skill)
+        end)
+
+        menu:addItem(item)
     end
-    exports['qb-menu']:openMenu(skillMenu)
+
+    menu:open()
 end
-    
+
 RegisterCommand(Config.Skillmenu, function()
     if Config.TypeCommand then
         createSkillMenu()
-    else 
+    else
         Wait(10)
-    end 
+    end
 end)
 
 RegisterNetEvent("mz-skills:client:CheckSkills")
