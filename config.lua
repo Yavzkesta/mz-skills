@@ -14,6 +14,8 @@ Config.Debug = false                        -- Set to "true" to print debugging 
 
 Config.TypeCommand = true                   -- Set to "false" to disable the "/skills" command (or whatever word you set in the next function)
 
+Config.UseOxMenu = false                     -- set to "true" for use ox_lib menu
+
 Config.Skillmenu = "skills"                 -- phrase typed to display skills menu (check readme.md to set to commit to radial menu)
 
 -------------
