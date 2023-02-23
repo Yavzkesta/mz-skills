@@ -12,6 +12,8 @@ Config.NotifyType = 'okok'                  -- Notification type: 'qb' for QBCor
 
 Config.Debug = false                        -- Set to "true" to print debugging messages
 
+Config.UseOxMenu = true                    -- set to "true" to use ox_lib menu instead of qb-menu
+
 Config.TypeCommand = true                   -- Set to "false" to disable the "/skills" command (or whatever word you set in the next function)
 
 Config.Skillmenu = "skills"                 -- phrase typed to display skills menu (check readme.md to set to commit to radial menu)
