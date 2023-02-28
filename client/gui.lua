@@ -112,7 +112,6 @@ local function createSkillMenuOX()
             },
             progress = math.floor((v['Current'] - v['Min']) / (v['Max'] - v['Min']) * 100),
             colorScheme = Config.skilloxcolor,
-
         }
     end
 
