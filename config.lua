@@ -16,6 +16,8 @@ Config.TypeCommand = true                   -- Set to "false" to disable the "/s
 
 Config.UseOxMenu = false                     -- set to "true" for use ox_lib menu
 
+Config.skilloxcolor = "teal"                -- set color (https://mantine.dev/theming/colors/#default-colors) exempel teal or indigo
+
 Config.Skillmenu = "skills"                 -- phrase typed to display skills menu (check readme.md to set to commit to radial menu)
 
 -------------
